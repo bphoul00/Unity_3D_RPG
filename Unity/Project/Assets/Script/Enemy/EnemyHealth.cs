@@ -13,14 +13,23 @@ public class EnemyHealth : MonoBehaviour {
 
 	
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
 		AddjustCurrentHealth (0);
+		if (curHealth == 0) {
+			Death ();
+		}
 	
 	}
-	void OnGUI(){
-		GUI.Box(new Rect(10,40, healthBarLength, 20), curHealth + "/" + maxHealth);
+
+	void OnGUI()
+	{
+		Vector2 targetPos;
+		targetPos = Camera.main.WorldToScreenPoint (transform.position);
+		GUI.Box(new Rect(targetPos.x, targetPos.y/10, healthBarLength, 20), curHealth + "/" + maxHealth);
+
+
 	}
 
 	public void AddjustCurrentHealth(float adj) {
@@ -39,4 +48,11 @@ public class EnemyHealth : MonoBehaviour {
 		}
 		healthBarLength = (Screen.width / 2) * (curHealth / (float)maxHealth);
 	}
+
+	private void Death(){
+		Destroy (this.gameObject);
+	}
+
+
+
 }

@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class PlayerAttack : MonoBehaviour {
 
-	public GameObject target;
 	public float attackDistance = 2;
 	public float attackDirection =  0;
 	public float attackTimer;
@@ -36,32 +36,22 @@ public class PlayerAttack : MonoBehaviour {
 	}
 
 	private void Attack(){
-		float distance = Vector3.Distance (target.transform.position, transform.position);
+		GameObject[] go = GameObject.FindGameObjectsWithTag ("Enemy");
+		foreach (GameObject enemy in go) {
+			float distance = Vector3.Distance (enemy.transform.position, transform.position);
 
-		Vector3 dir = (target.transform.position - transform.position).normalized;
+			Vector3 dir = (enemy.transform.position - transform.position).normalized;
 
-		float direction = Vector3.Dot (dir, transform.forward);
+			float direction = Vector3.Dot (dir, transform.forward);
 
-		Debug.Log (direction);
 
-		if (distance <= attackDistance && direction >= attackDirection) {
-			EnemyHealth enemyHealth = (EnemyHealth)target.GetComponent ("EnemyHealth");
-			enemyHealth.AddjustCurrentHealth (attackDamage);
-
-			if (enemyHealth.curHealth <= 0) {
-				Targetting ta = (Targetting)this.GetComponent ("Targetting");
-				Kill ();
-				ta.ClearTargetsAfterDeath ();
-				
+			if (distance <= attackDistance && direction >= attackDirection) {
+				EnemyHealth enemyHealth = (EnemyHealth)enemy.GetComponent ("EnemyHealth");
+				enemyHealth.AddjustCurrentHealth (attackDamage);
 			}
-
-
 		}
-
+			
 	}
-
-	public void Kill(){
-		Destroy (target);
-	}
+		
 		
 }

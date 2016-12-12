@@ -45,15 +45,19 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Script\BulletDamage.cs" />
      <Compile Include="Assets\Script\Character Classes\Attribute.cs" />
      <Compile Include="Assets\Script\Character Classes\BaseStat.cs" />
+     <Compile Include="Assets\Script\CrossHair.cs" />
      <Compile Include="Assets\Script\Enemy\EnemyAI.cs" />
      <Compile Include="Assets\Script\Enemy\EnemyAttack.cs" />
      <Compile Include="Assets\Script\Enemy\EnemyHealth.cs" />
-     <Compile Include="Assets\Script\NewBehaviourScript.cs" />
+     <Compile Include="Assets\Script\GameManager.cs" />
      <Compile Include="Assets\Script\Player\Player.cs" />
      <Compile Include="Assets\Script\Player\PlayerAttack.cs" />
      <Compile Include="Assets\Script\Player\PlayerVital.cs" />
+     <Compile Include="Assets\Script\RaycastShooting.cs" />
+     <Compile Include="Assets\Script\ShootingScript.cs" />
      <Compile Include="Assets\Script\Targetting.cs" />
      <None Include="Assets\Utility Shaders Free\Shaders\USV1 Preview Blur.shader" />
      <None Include="Assets\Utility Shaders Free\Shaders\USV1 Preview DBlur.shader" />

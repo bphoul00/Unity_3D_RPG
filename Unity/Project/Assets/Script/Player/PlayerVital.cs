@@ -95,4 +95,20 @@ public class PlayerVital : MonoBehaviour {
 		}
 	}
 
+	public void AddjustCurrentMana(float adj) {
+		manaSlider.value += adj;
+
+		if (manaSlider.value < 0) {
+			manaSlider.value = 0;
+		}
+
+		if (manaSlider.value > maxMana) {
+			manaSlider.value = maxMana;
+		}
+
+		if (manaSlider.value < 1) {
+			manaSlider.value = 1;
+		}
+	}
+
 }

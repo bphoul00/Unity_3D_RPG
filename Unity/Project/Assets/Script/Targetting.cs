@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿/*
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -21,7 +22,6 @@ public class Targetting : MonoBehaviour {
 		targets.Clear ();
 		selectedTarget = null;
 		AddAllEnemies ();
-		Debug.Log(targets);
 		TargetEnemy ();
 
 
@@ -49,20 +49,26 @@ public class Targetting : MonoBehaviour {
 	}
 
 	private void TargetEnemy(){
-		if (selectedTarget == null) {
-			SortTargetDistance ();
-			selectedTarget = targets [0];
-		} else {
-			int index = targets.IndexOf (selectedTarget);
-			if (index < targets.Count - 1) {
-				index++;
+		if (targets.Count > 0) {
+
+			if (selectedTarget == null) {
+				SortTargetDistance ();
+				selectedTarget = targets [0];
 			} else {
-				index = 0;
+				int index = targets.IndexOf (selectedTarget);
+				if (index < targets.Count - 1) {
+					index++;
+				} else {
+					index = 0;
+				}
+				DeselectTarget ();
+				selectedTarget = targets [index];
 			}
-			DeselectTarget ();
-			selectedTarget = targets [index];
+			SelectTarget ();
+		} else {
+			PlayerAttack pa = (PlayerAttack)GetComponent ("PlayerAttack");
+			pa.target = null;
 		}
-		SelectTarget ();
 	}
 
 	private void SelectTarget(){
@@ -89,3 +95,4 @@ public class Targetting : MonoBehaviour {
 
 }
 }
+*/
