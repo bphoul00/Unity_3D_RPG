@@ -18,7 +18,6 @@ public class PlayerVital : MonoBehaviour {
 
 	public Slider expSlider;
 	public int maxExp;
-	public float Lvlbar;
 	public int level;
 
 	void Start()
@@ -32,7 +31,6 @@ public class PlayerVital : MonoBehaviour {
 		expSlider.maxValue = maxExp;
 		expSlider.value = 0;
 
-		Lvlbar = Screen.width / 2;
 		level = 1;
 	}
 		
