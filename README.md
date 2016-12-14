@@ -14,12 +14,12 @@ le jeu correspond à un Labyrinthe dans lequel :
  - Le joueur doit s'échappé à des ennemis et contourné les pièges.
  
 
-###2 - Configuration 
+#2 - Configuration 
 
  Aucune configuration requise.
 
 
-###3 - Exécution
+#3 - Exécution
 
  A partir du moteur de jeu Unity : 
 	- lancer la scene : INF5071_project2\Unity\Project\Assets\scene
@@ -28,21 +28,21 @@ le jeu correspond à un Labyrinthe dans lequel :
 	- le joueur incarne une personnage humain.
 	
 
-###4 - Technologies utilisées
+#4 - Technologies utilisées
  
  - Blender - Unity
  - Java Script - C#
 
 
-###5 - Répertoire et sous-répertoires
+#5 - Répertoire et sous-répertoires
  
  - INF5071_project2 : contient le projet principale. - INF5071_project2\Blender : contient les objects modélisés par Blender. - INF5071_project2\Texture : contient les textures utiliser dans le cadre du projet. - INF5071_project2\Unity : contient les composants du jeu (Materials, textures, Scripts etc..) - INF5071_project2\Unity\Project\Assets\scene : pour lancer le jeu avec le moteur de jeu Unity.
  - presentation.pptx : Le document utilisé pour la présentation orale.
 
 
-###6 - Ressources utilisées 
+#6 - Ressources utilisées 
   *Tutoriels	:
-	- [https://www.youtube.com/watch?v=reSJQVH6C5o]	- [http://jvunity.weebly.com/]	
+	* [https://www.youtube.com/watch?v=reSJQVH6C5o]	* [http://jvunity.weebly.com/]	
 		
   *Images	   	: 
 	 sont principalement des images libre,récupérés à partir de google image.
