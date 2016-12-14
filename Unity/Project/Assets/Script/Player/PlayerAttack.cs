@@ -9,9 +9,13 @@ public class PlayerAttack : MonoBehaviour {
 	public float attackTimer;
 	public float coolDown = 2;
 	public float attackDamage = -10;
+	private Animator anim;
+
+	public AnimationClip melee;
 
 
 	void Start () {
+		anim = gameObject.GetComponentInChildren<Animator> ();
 		attackTimer = 0;
 		coolDown = 2.0f;
 	}
@@ -26,10 +30,13 @@ public class PlayerAttack : MonoBehaviour {
 			attackTimer = 0;
 		}
 
-		if (Input.GetKeyUp (KeyCode.F)) {
+		if (Input.GetKey(KeyCode.F)) {
 			if (attackTimer == 0) {
+				anim.SetBool ("melee", true);
 				Attack ();
 				attackTimer = coolDown;
+			} else {
+				anim.SetBool ("melee", false);
 			}
 		}
 	
@@ -38,6 +45,7 @@ public class PlayerAttack : MonoBehaviour {
 	private void Attack(){
 		GameObject[] go = GameObject.FindGameObjectsWithTag ("Enemy");
 		foreach (GameObject enemy in go) {
+			
 			float distance = Vector3.Distance (enemy.transform.position, transform.position);
 
 			Vector3 dir = (enemy.transform.position - transform.position).normalized;
@@ -52,6 +60,7 @@ public class PlayerAttack : MonoBehaviour {
 		}
 			
 	}
+		
 		
 		
 }
