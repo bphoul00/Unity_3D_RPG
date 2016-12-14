@@ -1,6 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+
+using UnityEngine.SceneManagement;
+
+
 public class PlayerVital : MonoBehaviour {
 
 	public Slider healthSlider;
@@ -12,6 +16,9 @@ public class PlayerVital : MonoBehaviour {
 	public int maxMana;
 	public int manaRegenationRate;
 
+	public Slider expSlider;
+	public int maxExp;
+
 	void Start()
 	{
 		healthSlider.maxValue = maxHealth;
@@ -19,6 +26,9 @@ public class PlayerVital : MonoBehaviour {
 
 		manaSlider.maxValue = maxMana;
 		manaSlider.value = maxMana;
+
+		expSlider.maxValue = maxExp;
+		expSlider.value = 0;
 	}
 		
 	void Update()
@@ -68,16 +78,26 @@ public class PlayerVital : MonoBehaviour {
 			manaSlider.value = maxMana;
 		}
 
+		//Exp Controller
+		if(expSlider.value < 0)
+		{
+			expSlider.value = 0;
+		}
+			
+
+		//Prevent suplus of mana
+		if(expSlider.value > maxExp)
+		{
+			expSlider.value = 0;
+		}
+
 
 
 	}
 
 
 
-	void CharacterDeath()
-	{
-		//Death
-	}
+
 
 	public void AddjustCurrentHealth(float adj) {
 		healthSlider.value += adj;
@@ -89,10 +109,7 @@ public class PlayerVital : MonoBehaviour {
 		if (healthSlider.value > maxHealth) {
 			healthSlider.value = maxHealth;
 		}
-
-		if (healthSlider.value < 1) {
-			healthSlider.value = 1;
-		}
+			
 	}
 
 	public void AddjustCurrentMana(float adj) {
@@ -105,10 +122,27 @@ public class PlayerVital : MonoBehaviour {
 		if (manaSlider.value > maxMana) {
 			manaSlider.value = maxMana;
 		}
+			
+	}
 
-		if (manaSlider.value < 1) {
-			manaSlider.value = 1;
+	public void AddjustCurrentExp(float adj) {
+		manaSlider.value += adj;
+
+		if (expSlider.value < 0) {
+			expSlider.value = 0;
 		}
+
+		if (expSlider.value > maxMana) {
+			expSlider.value = 0;
+		}
+
+	}
+
+	public void CharacterDeath (){
+		int scene = SceneManager.GetActiveScene().buildIndex;
+		SceneManager.LoadScene(scene, LoadSceneMode.Single);
+		Time.timeScale = 1;
 	}
 
 }
+ 
