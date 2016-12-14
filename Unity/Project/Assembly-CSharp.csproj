@@ -56,6 +56,7 @@
      <Compile Include="Assets\Script\Player\Player.cs" />
      <Compile Include="Assets\Script\Player\PlayerAttack.cs" />
      <Compile Include="Assets\Script\Player\PlayerVital.cs" />
+     <Compile Include="Assets\Script\Player\TextLevel.cs" />
      <Compile Include="Assets\Script\RaycastShooting.cs" />
      <Compile Include="Assets\Script\ShootingScript.cs" />
      <Compile Include="Assets\Script\Targetting.cs" />

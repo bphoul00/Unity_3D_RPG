@@ -18,6 +18,8 @@ public class PlayerVital : MonoBehaviour {
 
 	public Slider expSlider;
 	public int maxExp;
+	public float Lvlbar;
+	public int level;
 
 	void Start()
 	{
@@ -29,6 +31,9 @@ public class PlayerVital : MonoBehaviour {
 
 		expSlider.maxValue = maxExp;
 		expSlider.value = 0;
+
+		Lvlbar = Screen.width / 2;
+		level = 1;
 	}
 		
 	void Update()
@@ -89,6 +94,8 @@ public class PlayerVital : MonoBehaviour {
 		if(expSlider.value > maxExp)
 		{
 			expSlider.value = 0;
+			maxExp = 1 * maxExp + (maxExp/10);
+			level++;
 		}
 
 
@@ -143,6 +150,7 @@ public class PlayerVital : MonoBehaviour {
 		SceneManager.LoadScene(scene, LoadSceneMode.Single);
 		Time.timeScale = 1;
 	}
+
 
 }
  

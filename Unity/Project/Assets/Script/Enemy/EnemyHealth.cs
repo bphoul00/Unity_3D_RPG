@@ -4,7 +4,9 @@ using System.Collections;
 public class EnemyHealth : MonoBehaviour {
 	public float maxHealth = 100;
 	public float curHealth = 100;
+	public float expGain = 100;
 	public float healthBarLength;
+	public Transform target;
 
 	// Use this for initialization
 	void Start () {
@@ -50,6 +52,13 @@ public class EnemyHealth : MonoBehaviour {
 	}
 
 	private void Death(){
+		GameObject go = GameObject.FindGameObjectWithTag ("Player");
+
+		target = go.transform;
+
+		PlayerVital playerExp = (PlayerVital)target.GetComponent ("PlayerVital");
+		playerExp.AddjustCurrentExp (expGain);
+
 		Destroy (this.gameObject);
 	}
 
